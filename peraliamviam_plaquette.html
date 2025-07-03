@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PER ALIAM VIAM - La durabilité pour cible</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #4a7c59 0%, #6ba76f 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="25" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="60" cy="15" r="1" fill="rgba(255,255,255,0.06)"/><circle cx="80" cy="35" r="2.5" fill="rgba(255,255,255,0.04)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .logo {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-symbol {
+            width: 200px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: #fff;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 20px;
+        }
+
+        .logo-symbol img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .company-name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Section commune */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #4a7c59;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a7c59, #6ba76f);
+            border-radius: 2px;
+        }
+
+        /* Mission */
+        .mission {
+            background: #f8fdf9;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #4a7c59;
+            margin-bottom: 40px;
+        }
+
+        .mission-highlight {
+            background: linear-gradient(135deg, #4a7c59, #6ba76f);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(74, 124, 89, 0.3);
+        }
+
+        /* Services */
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e8f5ea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4a7c59, #6ba76f);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #4a7c59;
+            margin-bottom: 15px;
+        }
+
+        .service-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .service-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4a7c59;
+            font-weight: bold;
+        }
+
+        /* Expertise */
+        .expertise {
+            background: linear-gradient(135deg, #f8fdf9 0%, #e8f5ea 100%);
+        }
+
+        .expertise-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .expertise-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a7c59;
+        }
+
+        .expertise-highlight {
+            background: #4a7c59;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        .expertise-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a7c59;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Références */
+        .references {
+            background: white;
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .reference-card {
+            background: #f8fdf9;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #e8f5ea;
+            transition: all 0.3s ease;
+        }
+
+        .reference-card:hover {
+            border-color: #4a7c59;
+            transform: translateY(-5px);
+        }
+
+        .reference-logo {
+            width: 120px;
+            height: 60px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .reference-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .reference-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4a7c59;
+            margin-bottom: 15px;
+        }
+
+        .reference-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .reference-desc strong {
+            color: #4a7c59;
+        }
+
+        .reference-desc ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .reference-desc li {
+            margin-bottom: 5px;
+        }
+
+        /* Partenaires */
+        .partners {
+            background: #f8fdf9;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .partner-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .partner-logo {
+            width: 120px;
+            height: 60px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fdf9;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .partner-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4a7c59;
+            margin-bottom: 10px;
+        }
+
+        .partner-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Certifications */
+        .certifications {
+            background: white;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-item {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .cert-icon {
+           width: 120px;
+            height: 60px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+		
+		 .cert-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+		}
+
+        .cert-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4a7c59;
+            margin-bottom: 10px;
+        }
+
+        .cert-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Approche */
+        .approach {
+            background: #f8fdf9;
+        }
+
+        .approach-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .approach-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .approach-card:hover {
+            background: #4a7c59;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .approach-number {
+            width: 60px;
+            height: 60px;
+            background: #4a7c59;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .approach-card:hover .approach-number {
+            background: white;
+            color: #4a7c59;
+        }
+
+        .approach-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4a7c59;
+        }
+
+        .approach-card:hover .approach-title {
+            color: white;
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #4a7c59 0%, #6ba76f 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+        }
+
+        /* Print styles */
+        @media print {
+            .section {
+                padding: 40px 0;
+            }
+            .header {
+                break-inside: avoid;
+            }
+            .service-card, .reference-card, .cert-item, .approach-card {
+                break-inside: avoid;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .expertise-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-symbol {
+                width: 150px;
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-symbol">
+                    <img src="logo-per-aliam-viam.png" alt="PER ALIAM VIAM Logo" />
+                </div>
+                <h1 class="company-name">PER ALIAM VIAM</h1>
+                <p class="tagline">La durabilité pour cible</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mission -->
+    <section class="section mission">
+        <div class="container">
+            <h2 class="section-title">Notre Raison d'Être</h2>
+            <div class="mission-content">
+                <p class="mission-text">
+                    Accompagner les entreprises dans leur transition vers un modèle d'affaires durable, 
+                    compatible avec les limites planétaires et qui participe à construire un futur souhaitable.
+                </p>
+                <div class="mission-highlight">
+                    <strong>PER ALIAM VIAM</strong> - "Sur un autre chemin" en latin - 
+                    symbolise notre engagement à vous guider vers des solutions innovantes 
+                    et durables pour transformer votre entreprise.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services">
+        <div class="container">
+            <h2 class="section-title">Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 class="service-title">Conseil & Stratégie ESG</h3>
+                    <p class="service-description">Accompagnement stratégique pour intégrer les enjeux environnementaux, sociaux et de gouvernance dans votre organisation.</p>
+                    <ul class="service-list">
+                        <li>Analyse de matérialité et diagnostic ESG</li>
+                        <li>Construction de stratégies durables</li>
+                        <li>Aide à la décision et évaluation des impacts</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3 class="service-title">Conformité Réglementaire</h3>
+                    <p class="service-description">Expertise CSRD et accompagnement dans la mise en conformité avec les nouvelles exigences européennes.</p>
+                    <ul class="service-list">
+                        <li>Mise en conformité CSRD</li>
+                        <li>Déclarations de performance extra-financière</li>
+                        <li>Alignement aux normes ESRS</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3 class="service-title">Management de Projets</h3>
+                    <p class="service-description">Pilotage de projets complexes de transformation et management transversal de ressources dédiées à la RSE.</p>
+                    <ul class="service-list">
+                        <li>Direction de projets RSE</li>
+                        <li>Management de transition</li>
+                        <li>Gestion de portefeuille de projets</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3 class="service-title">Formation & Sensibilisation</h3>
+                    <p class="service-description">Animation d'ateliers et formations pour sensibiliser vos équipes aux enjeux environnementaux et sociaux.</p>
+                    <ul class="service-list">
+                        <li>Ateliers "Fresque de l'alimentation"</li>
+                        <li>Ateliers d'adaptation au changement climatique</li>
+                        <li>Formation aux méthodologies RSE</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3 class="service-title">Mesure & Reporting</h3>
+                    <p class="service-description">Construction d'indicateurs et outils de pilotage pour mesurer et communiquer votre performance extra-financière.</p>
+                    <ul class="service-list">
+                        <li>Bilans carbone et plans d'atténuation</li>
+                        <li>Évaluation RSE fournisseurs</li>
+                        <li>Outils de reporting intégrés</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3 class="service-title">Écoconception</h3>
+                    <p class="service-description">Assistance dans la conception de produits et services respectueux de l'environnement par l'analyse de cycle de vie.</p>
+                    <ul class="service-list">
+                        <li>Analyse de cycle de vie (ACV)</li>
+                        <li>Écoconception de produits alimentaires</li>
+                        <li>Optimisation des processus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section class="section expertise">
+        <div class="container">
+            <h2 class="section-title">Notre Expertise</h2>
+            <div class="expertise-content">
+                <div>
+                    <p class="expertise-text">
+                        <strong>23 ans d'expérience professionnelle</strong> dont 19 ans en management d'équipe, 
+                        avec une expertise reconnue dans le pilotage de projets complexes et structurants.
+                    </p>
+                    <div class="expertise-highlight">
+                        Spécialisation RSE depuis 6 ans au sein de l'écosystème Agapes Restauration, 
+                        avec une approche pragmatique adaptée aux contraintes des PME.
+                    </div>
+                    <p class="expertise-text">
+                        Formation universitaire en sciences de l'environnement (Master 2 Génie des procédés 
+                        de traitement des eaux) et certifications en gestion de projets. Animateur certifié 
+                        d'ateliers de sensibilisation environnementale.
+                    </p>
+                </div>
+                <div class="expertise-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">années d'expertise RSE</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">19</span>
+                        <span class="stat-label">ans de management</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">participants sensibilisés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">ans de DPEF Agapes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Références Clients -->
+    <section class="section references">
+        <div class="container">
+            <h2 class="section-title">Nos Principales Références</h2>
+            <div class="references-grid">
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <img src="logo-agapes.png" alt="Agapes Restauration" />
+                    </div>
+                    <h3 class="reference-name">AGAPES RESTAURATION</h3>
+                    <div class="reference-desc">
+                        <strong>Missions principales :</strong>
+                        <ul>
+                            <li>Bilan des émissions de GES</li>
+                            <li>Analyse de double matérialité</li>
+                            <li>Alignement avec les exigences des normes ESRS E1, S1 et G1 de la CSRD</li>
+                            <li>Déclaration de Performance Extra-Financière</li>
+                            <li>Animation d'ateliers de sensibilisation/formation</li>
+                            <li>Veille réglementaire</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <img src="logo-saladandco.png" alt="Salad&Co" />
+                    </div>
+                    <h3 class="reference-name">SALAD&CO</h3>
+                    <div class="reference-desc">
+                        <strong>Missions principales :</strong>
+                        <ul>
+                            <li>Création et animation du portefeuille de projets ESG</li>
+                            <li>Assistance méthodologique et soutien technique auprès des Chef.fe de Projet RSE</li>
+                            <li>Conseils stratégiques et tactiques auprès des instances dirigeantes</li>
+                            <li>Reporting régulier sur la progression des projets</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <img src="Logo-IlRistorante.png" alt="Il Ristorante" />
+                    </div>
+                    <h3 class="reference-name">IL RISTORANTE</h3>
+                    <div class="reference-desc">
+                        <strong>Missions principales :</strong>
+                        <ul>
+                            <li>Expertises techniques climat, biodiversité et circularité</li>
+                            <li>Conseils stratégiques et tactiques auprès des instances dirigeantes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <img src="logo-3brasseurs.png" alt="3 Brasseurs" />
+                    </div>
+                    <h3 class="reference-name">3 BRASSEURS</h3>
+                    <div class="reference-desc">
+                        <strong>Missions principales :</strong>
+                        <ul>
+                            <li>Expertises techniques</li>
+                            <li>Assistance dans la conduite des projets relatifs à l'adaptation au dérèglement climatique</li>
+                            <li>Atténuation des émissions GES</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <img src="logo_festein.png" alt="Festein d'Alsace" />
+                    </div>
+                    <h3 class="reference-name">FESTEIN D'ALSACE</h3>
+                    <div class="reference-desc">
+                        <strong>Missions principales :</strong>
+                        <ul>
+                            <li>Expertises techniques</li>
+                            <li>Identification des leviers de décarbonation dans la chaîne de valeur de l'industrie porcine</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <img src="Logo_flunch.png" alt="Flunch" />
+                    </div>
+                    <h3 class="reference-name">FLUNCH</h3>
+                    <div class="reference-desc">
+                        <strong>Missions principales :</strong>
+                        <ul>
+                            <li>Bilan des émissions de GES</li>
+                            <li>Assistance à la rédaction des politiques</li>
+                            <li>Fixation des cibles et définition des actions prioritaires</li>
+                            <li>Déclaration de Performance Extra-Financière</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reference-card">
+                    <div class="reference-logo">
+                        <img src="Logo-LeroyMerlin.png" alt="Leroy Merlin" />
+                    </div>
+                    <h3 class="reference-name">LEROY MERLIN</h3>
+                    <div class="reference-desc">
+                        <strong>Missions principales :</strong>
+                        <p>Participation à l'audit du contrôle interne avec les experts Pulse</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires et Réseaux -->
+    <section class="section partners">
+        <div class="container">
+            <h2 class="section-title">Partenaires & Réseaux Ressources</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="logo_pulse.png" alt="Pulse" />
+                    </div>
+                    <h3 class="partner-name">PULSE</h3>
+                    <p class="partner-desc">Agence d'experts indépendants qui accompagne les entreprises dans une conduite durable de leurs affaires</p>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="Logo_actsandfacts.png" alt="Acts&Facts" />
+                    </div>
+                    <h3 class="partner-name">ACTS&FACTS</h3>
+                    <p class="partner-desc">Plateforme qui engage les organisations dans la transition écologique et les accompagne dans la mise en action</p>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="Logo_JBLCOM.png" alt="JBL COM" />
+                    </div>
+                    <h3 class="partner-name">JBL COM</h3>
+                    <p class="partner-desc">Agence Conseil en Communication</p>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <img src="Logo_ECO2.png" alt="ECO2 Initiative" />
+                    </div>
+                    <h3 class="partner-name">ECO2 INITIATIVE</h3>
+                    <p class="partner-desc">Cabinet conseil et d'études pour la transition environnementale</p>
+                </div>
+				
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications et Formations -->
+    <section class="section certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Formations</h2>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <div class="cert-icon">
+                        <img src="logo-prince2.png" alt="Prince2" />
+                    </div>
+                    <h3 class="cert-title">PRINCE2</h3>
+                    <p class="cert-desc">Méthodologie de gestion de projets structurée et reconnue internationalement</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">
+                        <img src="logo-scrum.png" alt="Scrum" />
+                    </div>
+                    <h3 class="cert-title">SCRUM</h3>
+                    <p class="cert-desc">Framework agile pour la gestion de projets complexes et adaptatifs</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">
+                        <img src="logo-act.png" alt="ACT ADEME" />
+                    </div>
+                    <h3 class="cert-title">Méthodes ACT (ADEME)</h3>
+                    <p class="cert-desc">Assessing Low Carbon Transition - Évaluation des trajectoires bas carbone</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">
+                        <img src="logo-lca.png" alt="LCA - Life Cycle Assessment" />
+                    </div>
+                    <h3 class="cert-title">Analyse de Cycle de Vie</h3>
+                    <p class="cert-desc">Formation ACV par Gingko21 pour l'écoconception de produits</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">
+                        <img src="logo-adacc.png" alt="AdACC" />
+                    </div>
+                    <h3 class="cert-title">Ateliers AdACC</h3>
+                    <p class="cert-desc">Animateur certifié des ateliers d'Adaptation au Changement Climatique</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">
+                        <img src="logo-fresque-alimentation.png" alt="Fresque de l'Alimentation" />
+                    </div>
+                    <h3 class="cert-title">Fresque de l'Alimentation</h3>
+                    <p class="cert-desc">Animateur certifié - Sensibilisation aux enjeux alimentaires durables</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approche -->
+    <section class="section approach">
+        <div class="container">
+            <h2 class="section-title">Notre Approche</h2>
+            <div class="approach-cards">
+                <div class="approach-card">
+                    <div class="approach-number">1</div>
+                    <h3 class="approach-title">Accessible</h3>
+                    <p>Rendre la RSE accessible aux PME avec des solutions adaptées à leurs moyens et contraintes.</p>
+                </div>
+                <div class="approach-card">
+                    <div class="approach-number">2</div>
+                    <h3 class="approach-title">Pragmatique</h3>
+                    <p>Une méthodologie opérationnelle basée sur l'expérience terrain et les bonnes pratiques.</p>
+                </div>
+                <div class="approach-card">
+                    <div class="approach-number">3</div>
+                    <h3 class="approach-title">Sur-mesure</h3>
+                    <p>Solutions personnalisées adaptées à chaque contexte et culture d'entreprise.</p>
+                </div>
+                <div class="approach-card">
+                    <div class="approach-number">4</div>
+                    <h3 class="approach-title">Transformative</h3>
+                    <p>Accompagnement global incluant sensibilisation, formation et conduite du changement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+     <section class="section contact">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Parlons de Votre Projet</h2>
+            <div class="contact-content">
+                <p style="font-size: 1.2rem; margin-bottom: 30px;">
+                    Prêt à emprunter un autre chemin vers la durabilité ? 
+                    Discutons de vos enjeux et construisons ensemble votre stratégie RSE.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text">sylvain.lc@peraliamviam.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5S14.5 7.62 14.5 9S13.38 11.5 12 11.5Z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text">COUTICHES (Hauts-de-France)</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.41 1.41 0 0 1 15.72 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19S5.19 5.95 5.19 6.88A1.69 1.69 0 0 0 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <a href="https://linkedin.com/company/per-aliam-viam" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">
+                                Ln/Per Aliam Viam
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                                <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M18.5 18.5V13.2A3.26 3.26 0 0 0 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17A1.41 1.41 0 0 1 15.72 13.57V18.5H18.5M6.88 8.56A1.68 1.68 0 0 0 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19S5.19 5.95 5.19 6.88A1.69 1.69 0 0 0 6.88 8.56M8.27 18.5V10.13H5.5V18.5H8.27Z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <a href="https://linkedin.com/in/sylvain-lemang-catel-59310" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: none;">
+                                Ln/Sylvain LC
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Script pour l'impression
+        function printPage() {
+            window.print();
+        }
+        
+        // Ajout d'un bouton d'impression (optionnel)
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Plaquette PER ALIAM VIAM chargée avec succès');
+        });
+    </script>
+</body>
+</html>
